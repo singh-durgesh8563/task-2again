@@ -29,9 +29,7 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
-      # Run Terraform plan to see what changes will be made
-      - name: Terraform Plan
-        run: terraform plan
+  
 
       # Apply the Terraform plan (create the EC2 instance and security group)
       - name: Terraform Apply
