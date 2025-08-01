@@ -29,22 +29,31 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1  # Replace with your desired region
 
-      # Run Terraform init to initialize the Terraform directory
+      # Navigate to the terraform-ec2 directory (where your .tf files are located)
+      - name: Change directory to Terraform configuration
+        run: cd terraform-ec2  # Change this to the actual folder where your Terraform files are
+
+      # Initialize Terraform in the correct directory
       - name: Terraform Init
         run: terraform init
+        working-directory: ./terraform-ec2  # Ensure it's pointing to your terraform-ec2 folder
 
       # Validate the Terraform configuration
       - name: Terraform Validate
         run: terraform validate
+        working-directory: ./terraform-ec2
 
       # Run Terraform plan to show the actions Terraform will take
       - name: Terraform Plan
         run: terraform plan
+        working-directory: ./terraform-ec2
 
       # Apply Terraform configuration (creating resources)
       - name: Terraform Apply
         run: terraform apply -auto-approve
+        working-directory: ./terraform-ec2
 
-      # Output information after deployment (optional, can be modified to your need)
+      # Output information after deployment (optional)
       - name: Terraform Output
         run: terraform output
+        working-directory: ./terraform-ec2
