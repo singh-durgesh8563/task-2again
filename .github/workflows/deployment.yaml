@@ -29,9 +29,7 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
-      # Run Terraform plan to show the actions Terraform will take
-      - name: Terraform Plan
-        run: terraform plan
+      
 
       # Apply Terraform configuration (creating resources)
       - name: Terraform Apply
