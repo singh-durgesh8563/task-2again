@@ -43,10 +43,7 @@ jobs:
         run: terraform validate
         working-directory: ./terraform-ec2
 
-      # Run Terraform plan to show the actions Terraform will take
-      - name: Terraform Plan
-        run: terraform plan
-        working-directory: ./terraform-ec2
+      
 
       # Apply Terraform configuration (creating resources)
       - name: Terraform Apply
