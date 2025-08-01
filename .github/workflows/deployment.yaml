@@ -25,16 +25,18 @@ jobs:
       - name: Terraform Init
         run: terraform init
 
-      # Run Terraform validate to check if the code is correct
+      # Validate the Terraform configuration
       - name: Terraform Validate
         run: terraform validate
 
-  
+      # Run Terraform plan to show the actions Terraform will take
+      - name: Terraform Plan
+        run: terraform plan
 
-      # Apply the Terraform plan (create the EC2 instance and security group)
+      # Apply Terraform configuration (creating resources)
       - name: Terraform Apply
-        run: terraform apply -auto-approve  # Auto-approve to skip the confirmation step
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}   # AWS access key from secrets
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}  # AWS secret key from secrets
-          AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}   # AWS region from secrets
+        run: terraform apply -auto-approve
+
+      # Output information after deployment (optional, can be modified to your need)
+      - name: Terraform Output
+        run: terraform output
