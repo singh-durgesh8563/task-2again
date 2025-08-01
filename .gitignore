@@ -1,0 +1,33 @@
+# Node.js and React build-related files
+node_modules/
+package-lock.json
+package.json
+
+# Terraform state files
+*.tfstate
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+
+# Terraform provider binaries
+*.terraform.providers/
+
+# Mac OS system files
+.DS_Store
+
+# VSCode settings
+.vscode/
+
+# Logs and temporary files
+*.log
+*.swp
+
+# IDE related files
+.idea/
+
+# Build output
+build/
+dist/
+
+# Other IDEs like IntelliJ, WebStorm, etc.
+*.iml
